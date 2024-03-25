@@ -38,9 +38,9 @@ namespace Genratax.Controllers
         public async Task<IActionResult>Thread(string url){
             return View(await _postRepository
             .Posts
-            .Include(x=>x.User)
             .Include(x=>x.Comments)
             .ThenInclude(x=>x.User)
+            .Include(x=>x.User)
             .FirstOrDefaultAsync(p=>p.Url == url));
         }
         [HttpPost]
