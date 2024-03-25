@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Genratax.Migrations
 {
     [DbContext(typeof(ForumContext))]
-    [Migration("20240323112148_UpdateTableUser")]
-    partial class UpdateTableUser
+    [Migration("20240325120149_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
