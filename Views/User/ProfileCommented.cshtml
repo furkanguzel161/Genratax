@@ -1,0 +1,57 @@
+@model CommentsViewModel
+    
+
+<div class="d-flex gap-2 justify-content-center py-10">
+  <a href= "/User/profile" class="btn btn-dark d-inline-flex align-items-center" type="button">
+    Gönderilerin
+    <svg class="bi ms-1" width="0" height="20"><use xlink:href="#arrow-right-short"/></svg>
+  </a>
+    <a class="btn  btn-light d-inline-flex align-items-center" type="button">
+    Yorumların
+    <svg class="bi ms-1" width="0" height="20"><use xlink:href="#arrow-right-short"/></svg>
+  </a>
+</div>
+
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+  @foreach (var post in Model.Comments){
+          <div class="col ">
+          <div class="card bg-body shadow-sm">
+           <text class="text-white" x="50%" y="50%" fill="#eceeef" dy=".3em"> @post.User.UserName</text>
+            <div class="card-body">
+              <p class="card-text text-white text-truncate" style="max-width: 150px;">@post.Text</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="/posts/thread/@post.Post.Url" class="btn btn-sm btn-outline-secondary">Gönderiye Git</a>
+                  <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Sil</button>
+                  <a href="/posts/editcomment/@post.CommentId" class="btn btn-sm btn-outline-primary">Düzenle</a>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content bg-body">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Yorumu Sil</h1>
+        <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-white">
+        Yorumu silmek istedigine emin misin ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal">Kapat</button>
+        <a href="/posts/DeleteComment/@post.CommentId"  class="btn btn-sm btn-outline-danger text-white">Sil</a>
+      </div>
+    </div>
+  </div>
+</div> 
+         }
+      </div>
+    </div>
+  </div>

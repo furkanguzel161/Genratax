@@ -1,0 +1,34 @@
+@model CreatePostViewModel
+
+
+    <div class="modal  modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" data-bs-theme="dark" tabindex="-1" role="dialog" id="modalSignin">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content bg-body rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-4 text-white">Gönderiyi Düzenle</h1>
+      </div>
+
+      <div class="modal-body p-5 pt-0">
+        <form action="Edit" method="post">
+          <div asp-validation-summary="All" class="text-danger"></div>
+          <input type="hidden" asp-for="PostId">
+          <div class="form-floating mb-3">
+            <input asp-for="Title" class="form-control bg-body rounded-3 text-white" id="floatingInput" placeholder="Test Gonderisi">
+            <label asp-for="Title" class="text-white form-label">Başlik</label>
+            
+          <span asp-validation-for="Title" class="text-danger"></span>
+          </div>
+          <div class="form-floating mb-3">
+            <input asp-for="Image" class="form-control bg-body rounded-3 text-white" id="floatingInput" placeholder="Resim Urlsi">
+            <label asp-for="Image" class="text-white form-label">Resim Urlsi</label>
+            
+          <span asp-validation-for="Image" class="text-danger"></span>
+          </div>
+          <div class="form-floating mb-3">
+            <textarea asp-for="Content" class="form-control bg-body rounded-3 text-white" rows="500" style="height: 272px;" id="floatingInput" placeholder="Test Gonderisi"></textarea>
+            <label asp-for="Content" class="text-white form-label">Içerik</label>
+            
+          <span asp-validation-for="Content" class="text-danger"></span>
+          </div>
+          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Gönder</button>
+                  </form>

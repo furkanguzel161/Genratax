@@ -1,0 +1,27 @@
+@model LoginViewModel
+
+
+    <div class="modal  modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" data-bs-theme="dark" tabindex="-1" role="dialog" id="modalSignin">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content bg-body rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-2 text-white">Lütfen Giriş Yapın.</h1>
+      </div>
+
+      <div class="modal-body p-5 pt-0">
+        <form action="Signin" method="post">
+          <div asp-validation-summary="All" class="text-danger"></div>
+          <div class="form-floating mb-3">
+            <input asp-for="Email" class="form-control bg-body rounded-3 text-white" id="floatingInput" placeholder="name@example.com">
+            <label asp-for="Email" class="text-white form-label">Email Adresi</label>
+            
+            <span asp-validation-for="Email" class="text-danger"></span>
+          </div>
+          <div class="form-floating mb-3">
+            <input asp-for="Password" class="form-control bg-body rounded-3 text-white" id="floatingPassword" placeholder="Password">
+            <label asp-for="Password" class="text-white for="floatingPassword">Şifre</label>
+            <span asp-validation-for="Password" class="text-danger"></span>
+
+          </div>
+          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Giriş Yap</button>
+                  </form>
